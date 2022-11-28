@@ -1,0 +1,5 @@
+要查找東西可以用
+grep "XXX"
+
+詳細資料夾內部
+find -iname "XXX" | grep -inr

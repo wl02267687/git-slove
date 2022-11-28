@@ -1,0 +1,43 @@
+EX:
+
+ssh://mm2sd-slave.sdlc.rd.realtek.com:29418/realtek/android/manifest (舊的)
+
+ssh://mm2sd-slave.rtkbf.com:29418/realtek/android/manifest (新的)
+
+
+DB1783 可以看
+[ Note ]
+請幫忙在daily build目錄,
+aquamarine 產出物, 存放在 "aquamarine_Dias_4K" 目錄下
+augite 產出物, 存放在 "augite_Demeter_4k" 目錄下
+
+function COPY_TO_SERVER()
+{
+    BUILD_TYPE=$1
+    BUILD_TYPE2=$2
+    
+    mkdir -p ${IMAGE_FOLDER}"/"${BUILD_TYPE2}
+    
+    
+        
+   
+    # Copy To Server
+    cd ${Root}/image_creator
+    cp -rf install*.img ${IMAGE_FOLDER}"/"${BUILD_TYPE2}
+    
+    # add fw and prebuilts
+    cd ${Root}/kernel/system
+    cp -rf tmp/dailybuild_output/* ${IMAGE_FOLDER}"/"${BUILD_TYPE2}
+    cd -
+
+        
+    # Remove prebuilts
+    rm -rf ${Root}/kernel/system/tmp/dailybuild_output/*
+    
+    # Remove Previous install.img
+	cd ${Root}/image_creator
+    rm -rf install*.img
+    
+   
+    
+}

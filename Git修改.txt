@@ -1,0 +1,37 @@
+git st 確認有修改什麼
+git diff 確認修改內容
+git reset DBxxxx/Jenkinsfile 回復某個檔案
+git checkout /DBxxxx/Jenkinsfile 回復單一檔案
+git reset --hard HEAD~1從server回附上一個版本
+git clone ssh://mm2-slave.sdlc.rd.realtek.com:29418/DB1429/tv001/Mark2/DBbootcode  連接serverbootcode檔案下來需要在mm2後方加上slave
+
+cd /MIRROR_REPO/FW_MODULE_fmirror 進到這個資料夾確認文件mirror了沒
+
+例如
+ls /MIRROR_REPO/FW_MODULE_fmirror/DB1351/tv030/NA_S54/DBaudiocodec.git ;
+確認資料夾有mirror後
+回到 ~/dino_test/jenkinsfiles 下 vi 裡面的內容
+修改COMMIT_GIT_MIRROR底下的defaultValue
+
+Bootcode
+修改BUILD_CONFIG_LIST底下的defaultValue
+
+
+結束後
+git add *
+git commit
+
+commit輸入 [Mirror] Add related prebuilt job -2
+
+	[Bootcode][DB1530]Add and remove config from owner request
+
+最後輸入git push
+
+
+
+格式
+/MIRROR_REPO/FW_MODULE_fmirror/
+=D97
+.git
+ls  
+=I97&J97&K97

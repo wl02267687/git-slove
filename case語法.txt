@@ -1,0 +1,10 @@
+ case $1 in
+                        MMVB504[_])
+                                cd $WORKSPACE"/quick_show"
+                                make
+                                cd -
+                        ;;
+                        *)
+                                echo "No Need compile quick show"                               
+                        ;;
+                        esac

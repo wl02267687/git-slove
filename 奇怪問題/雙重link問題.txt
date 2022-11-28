@@ -1,0 +1,3 @@
+遇到git clean -fd後底下第二層的link被刪除
+可以先到他下方的common_headers確認 ".gitignore"資料夾
+後面新增"白名單"來避免被刪除

@@ -1,0 +1,11 @@
+再跑RUN_SDLC的時候出現這種狀況
+有可能是連線中斷導致沒有此file
+
+'[' '!' -f /mnt/SDLC_FTP/FTPIN_STILL_ALIVE.status ']'
+
+'!'--判斷相反
+
+-f 是否有這個檔案
+
+可以先到此server確認 mnt/SDLC_FTP/底下有沒有這個資料夾
+沒有的話直接touch建一個再重新trigger

@@ -1,0 +1,72 @@
+Projects使用   帳號:escortlin	/ 010276
+
+
+DB1593/tv036/Ceto_Debug/DBaudio
+
+先到Projects建一個DB檔案,再回到SERVER使用git clone ssh再到裡面建置pkg_output/跟內部PKG檔案,跟新增DBXXXX內部jenkinsfiles修改內容
+在PUSH上去,回到Jenkins後創建一個新的DB,創完建置跑過兩遍確認OK,回復Jira內容
+
+----->Projects建置到Projects底下create new projects
+
+繼承project:(Projects名稱)
+DB1020/tv030/BeyondTV4_R/DBdolbyidk
+
+git clone ssh://mm2-slave.sdlc.rd.realtek.com:29418/DB1185/tv030/NA_S54/DBaudio
+git clone ssh://mm2-slave.sdlc.rd.realtek.com:29418/DB1255/tv030/BeyondTV4_R_4K_MP/DBbootcode
+
+cd DBaudio;mkdir pkg_output;touch AudioBranchPatchDetail.log;touch pkg_output/bluecore.audio_ab.tv036_DDPBroadCast.pkg;touch pkg_output/bluecore.audio_ab.tv036_no_dolby.pkg;touch pkg_output/bluecore.audio_ab.tv036_no_dolbyaacwma
+.pkg
+
+git add * ; git commit -F ../Commit.log ; git push
+
+
+
+
+MakeConfig= MakeConfig_tv036_DDPBroadCast
+
+MakeConfig= MakeConfig_tv036_no_dolby
+
+ MakeConfig= MakeConfig_tv036_no_dolbyaacwma
+
+
+[Source Code]底下記得修改
+REPO_Url、REPO_Branch、REPO_manifestFile
+
+
+MkCfgSQA/MakeConfig_tv036_DDPBroadCast:.tv036_DDPBroadCast\nMkCfgSQA/MakeConfig_tv036_no_dolby:.tv036_no_dolby\nMkCfgSQA/MakeConfig_tv036_no_dolbyaacwma:.tv036_no_dolbyaacwma
+
+yungjui.lee@realtek.com,tommy_liao@realtek.com,sh_li@realtek.com,zhengfeng_cao@realtek.com
+==============================
+
+回復新的JIRA給user
+
+Dear [~ronaldyang]
+
+已新增Daily Build請確認，若沒有問題請將狀態設定成Resolved
+Thanks
+
+
+Jenkins:
+https://mm2.sdlc.rd.realtek.com/jenkins/job/008_Audio/job/DB1593_Mac7p_Audio_TV036_Branch_for_Hikeen_Debug/
+
+https://mm2.sdlc.rd.realtek.com/jenkins/job/004_sdlc_audio/job/DB1330_Mac7p_Audio_TV036_Branch_for_Hikeen/
+
+Commit Path:
+http://mm2.sdlc.rd.realtek.com/gerrit/plugins/gitiles/DB1593/tv036/Ceto_Debug/DBaudio
+---->僅後方DB開始修改就好
+
+若之後有需要用到的FW請在manifest中加入
+<project path="DBaudio" name="DB1593/tv036/Ceto_Debug/DBaudio" revision="master" />
+
+===================================
+若有移除並新增的話回復jira
+
+Dear [~ronaldyang]
+
+已經移除並將新增的config新增MMQCDB-1593
+
+ 
+
+Jenkins:
+https://mm2.sdlc.rd.realtek.com/jenkins/job/004_sdlc_audio/job/DB1330_Mac7p_Audio_TV036_Branch_for_Hikeen/
+

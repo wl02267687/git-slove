@@ -1,0 +1,141 @@
+帳號:escortlin	/ 010276
+
+
+DB1593/tv036/Ceto_Debug/DBaudio
+
+繼承project:
+DB1020/tv030/BeyondTV4_R/DBdolbyidk
+
+git clone ssh://mm2-slave.sdlc.rd.realtek.com:29418/DB1185/tv030/NA_S54/DBaudio
+git clone ssh://mm2-slave.sdlc.rd.realtek.com:29418/DB1255/tv030/BeyondTV4_R_4K_MP/DBbootcode
+
+cd DBaudio;mkdir pkg_output;touch AudioBranchPatchDetail.log;touch pkg_output/bluecore.audio_ab.tv036_DDPBroadCast.pkg;touch pkg_output/bluecore.audio_ab.tv036_no_dolby.pkg;touch pkg_output/bluecore.audio_ab.tv036_no_dolbyaacwma
+.pkg
+
+git add * ; git commit -F ../Commit.log ; git push
+
+
+
+
+MakeConfig= MakeConfig_tv036_DDPBroadCast
+
+MakeConfig= MakeConfig_tv036_no_dolby
+
+ MakeConfig= MakeConfig_tv036_no_dolbyaacwma
+
+
+
+
+MkCfgSQA/MakeConfig_tv036_DDPBroadCast:.tv036_DDPBroadCast\nMkCfgSQA/MakeConfig_tv036_no_dolby:.tv036_no_dolby\nMkCfgSQA/MakeConfig_tv036_no_dolbyaacwma:.tv036_no_dolbyaacwma
+
+yungjui.lee@realtek.com,tommy_liao@realtek.com,sh_li@realtek.com,zhengfeng_cao@realtek.com
+==============================
+       booleanParam(
+            name: 'COMMIT_TO_GIT',
+            defaultValue: true,
+            description: 'commit binary to git server'
+        )
+        string(
+            name: 'COMMIT_GIT_URL',
+            defaultValue: 'ssh://mm2-slave.sdlc.rd.realtek.com:29418/DB1185/tv030/NA_S54/DBaudio',
+            description: 'GIT clone URL for commit binary'
+        )
+        string(
+            name: 'COMMIT_GIT_BRANCH',
+            defaultValue: 'master',
+            description: 'SVN Path for commit binary'
+        )
+        string(
+            name: 'COMMIT_GIT_MIRROR',
+            defaultValue: '/MIRROR_REPO/FW_MODULE_fmirror/DB945/tv030/BeyondTV4/DBaudio.git',
+            description: 'GIT repository MIRROR PATH'
+        )
+        string(
+            name: 'COMMIT_GIT_FOLDER_NAME',
+            defaultValue: 'DBaudio',
+            description: 'commit git local folder name'
+        )
+        
+        
+=====================================================================
+[Audio][DB1059] Change commit Path to Git
+    
+    :Release Notes:
+    [Audio][DB1059] Change commit Path to Git
+
+    :Detailed Notes:
+    - Problem : None
+    - RootCause : None
+    - Solution : None
+    - Author : Steven
+    - Build : None
+
+    :Testing Preformed:
+    How to Test :
+    None
+git add * ; git commit -F ../Commit.log ; git push    
+=======================================================================
+
+Commit to GIT rule
+Audio Name Rule
+System.map.audio.realtek
+bluecore.audio.realtek.zip
+bluecore.audio.text.realtek.zip
+pkg_output/bluecore.audio.realtek.pkg
+
+
+
+
+Video Name Rule
+System.map.video.opt
+bluecore.video.zip.opt
+video_firmware.text.zip.opt
+pkg_output/bluecore.video.opt.pkg
+=========================================================================
+
+
+
+Change Commit path to GIT, Update status as below
+
+Jenkins:
+https://mm2.sdlc.rd.realtek.com/jenkins/job/005_Bootcode/job/DB1515_Merlin5_Bootcode_TV011_R_Branch/
+
+Commit Path轉移到gerrit:
+http://mm2.sdlc.rd.realtek.com/gerrit/plugins/gitiles/DB1397/tv051/DBaudiocodec
+
+若之後有需要用到的FW請在manifest中加入
+<project path="DBaudiocodec" name="DB1397/tv051/DBaudiocodec" revision="master" />
+
+
+
+=========================================================
+                                         
+cd DBvideo ; mkdir pkg_output ;touch pkg_output/bluecore.video.opt.pkg ; touch VideoBranchPatchDetail.log
+
+
+
+cd DBbootcode; touch BootcodeBranchPatchDetail.log
+
+
+
+
+Dear [~ronaldyang]
+
+已新增Daily Build請確認，若沒有問題請將狀態設定成Resolved
+Thanks
+
+
+Jenkins:
+https://mm2.sdlc.rd.realtek.com/jenkins/job/008_Audio/job/DB1593_Mac7p_Audio_TV036_Branch_for_Hikeen_Debug/
+
+https://mm2.sdlc.rd.realtek.com/jenkins/job/004_sdlc_audio/job/DB1330_Mac7p_Audio_TV036_Branch_for_Hikeen/
+
+Commit Path:
+http://mm2.sdlc.rd.realtek.com/gerrit/plugins/gitiles/DB1593/tv036/Ceto_Debug/DBaudio
+
+若之後有需要用到的FW請在manifest中加入
+<project path="DBaudio" name="DB1593/tv036/Ceto_Debug/DBaudio" revision="master" />
+
+
+
+DB1515/tv011/R_Branch/DBbootcode
